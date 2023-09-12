@@ -1,0 +1,50 @@
+---
+import type { TransitionDirectionalAnimations } from "astro";
+interface Props {
+  title: string;
+  cardMain: string;
+  style: string;
+  titleColor?: string;
+  anim?: TransitionDirectionalAnimations;
+}
+const { title, style, cardMain, titleColor, anim } = Astro.props;
+const dynamicClass = `text-center font-bold mr-1 ${titleColor}`;
+---
+
+<style>
+  /* 注册你的自定义字体并告诉浏览器它在哪里 */
+  @font-face {
+    font-family: "ALfont";
+    src: url("/fonts/AlimamaFangYuanTiVF-Thin.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  p {
+    font-family: "ALfont";
+  }
+</style>
+{
+  anim === undefined ? (
+    <div class={style}>
+      <div class="flex justify-center items-center">
+        <p class={dynamicClass}>{title}</p>
+        <slot name="icon" />
+      </div>
+      <div class={cardMain}>
+        <slot />
+      </div>
+    </div>
+  ) : (
+    <div class={style} transition:animate={anim}>
+      <div class="flex justify-center items-center">
+        <p class={dynamicClass}>{title}</p>
+        <slot name="icon" />
+      </div>
+      <div class={cardMain}>
+        <slot />
+      </div>
+    </div>
+  )
+}

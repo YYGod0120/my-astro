@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "ZCOOL";
+  src: url("/fonts/ZCOOLQingKeHuangYou-Regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ALfont";
+  src: url("/fonts/AlimamaFangYuanTiVF-Thin.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+.where {
+  font-family: "ZCOOL";
+}
+.ALF {
+  font-family: "ALfont";
+}
+a {
+  text-decoration: none;
+}

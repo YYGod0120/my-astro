@@ -1,0 +1,176 @@
+---
+import { ViewTransitions, fade } from "astro:transitions";
+import Header from "../components/Header.astro";
+import Card from "../components/Card.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { Image } from "astro:assets";
+import BaseHead from "../components/BaseHead.astro";
+import avatar from "../images/cards/avatar.png";
+import wechat from "../images/cards/wechat.jpg";
+import github from "../images/cards/github.png";
+import qq from "../images/cards/qq.png";
+import "../styles/move.css";
+import "../styles/fontFamily.css";
+import { anmi } from "../utils/makeMoving";
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <ViewTransitions />
+  </head>
+  <body class="h-screen">
+    <Header title={SITE_TITLE} />
+    <div
+      class="grid grid-cols-4 gap-4 mt-5 px-9 grid-rows-3"
+      style="height: 88vh"
+    >
+      <Card
+        titleColor="text-sky-800"
+        title="Photo"
+        style="border border-gray-600  row-span-2 overflow-hidden rounded-md"
+        cardMain="bg-sky-800 h-full flex items-center justify-center "
+        anim={anmi(1550, "500px")}
+      >
+        <Image
+          alt="Photo"
+          src={avatar}
+          width={150}
+          height={200}
+          class="mb-16 rounded-full"
+        />
+      </Card>
+
+      <Card
+        titleColor="text-blue-300"
+        title="About Me"
+        style="border border-gray-600 col-span-2 overflow-hidden row-span-2 rounded-md"
+        cardMain="bg-blue-300 h-full"
+        anim={anmi(800, "400px")}
+      >
+        <Image alt="Photo" src={wechat} width={150} height={200} class="" />
+      </Card>
+      <Card
+        titleColor="text-blue-300"
+        title="Where"
+        style=" border border-gray-600 overflow-hidden rounded-md"
+        cardMain="bg-blue-300 h-full"
+        anim={anmi(300, "500px")}
+      >
+        <div
+          class="where flex flex-col items-center font-bold pt-10 text-blue-300"
+        >
+          <div class="w-7/12 text-center mb-5 bg-white">CHONGQING</div>
+          <div class="w-7/12 text-center bg-white">FUZHOU</div>
+        </div>
+      </Card>
+      <Card
+        title="Friends"
+        style=" border border-gray-600 overflow-hidden rounded-md row-span-2 "
+        cardMain="bg-pink-300 h-full"
+        titleColor="text-pink-300"
+        anim={anmi(550, "500px")}
+      >
+        <div class="flex flex-col items-center pt-10">
+          <div class="w-7/12 bg-white rounded-[15px] mb-5 bg-opacity-50">
+            <span class="text-xl ml-5 mr-5 ALF">老孙</span>
+            <a
+              href="https://sunsunmonkey.github.io/"
+              class="text-sm text-gray-500 hover:underline hover:text-gray-500"
+              >写前端的孙悟空</a
+            >
+          </div>
+          <div class="w-7/12 bg-white rounded-[15px] mb-5 bg-opacity-50">
+            <span class="text-xl ml-5 mr-5 ALF">海川</span>
+            <a
+              href="https://sunsunmonkey.github.io/"
+              class="text-sm text-gray-500 hover:underline hover:text-gray-500"
+              >杂七杂八大佬</a
+            >
+          </div>
+        </div>
+      </Card>
+      <Card
+        titleColor="text-green-500"
+        title="WeChat"
+        style=" border border-gray-600 overflow-hidden rounded-md"
+        cardMain="bg-green-500 h-full flex justify-center "
+        anim={anmi(1800, "500px")}
+      >
+        <svg
+          slot="icon"
+          class="icon"
+          viewBox="0 0 1024 1024"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          p-id="4672"
+          width="32"
+          height="32"
+          ><path
+            d="M692.313043 347.269565c11.130435 0 22.26087 0 35.617391 2.226087C696.765217 204.8 540.93913 95.721739 362.852174 95.721739c-198.121739 0-360.626087 135.791304-360.626087 307.2 0 100.173913 53.426087 180.313043 144.695652 242.643478L111.304348 756.869565l126.886957-62.330435c44.521739 8.904348 82.365217 17.808696 126.886957 17.808696 11.130435 0 22.26087 0 33.391304-2.226087-6.678261-24.486957-11.130435-48.973913-11.130435-75.686957C385.113043 476.382609 520.904348 347.269565 692.313043 347.269565L692.313043 347.269565zM498.643478 249.321739c26.713043 0 44.521739 17.808696 44.521739 44.521739 0 26.713043-17.808696 44.521739-44.521739 44.521739-26.713043 0-53.426087-17.808696-53.426087-44.521739C445.217391 267.130435 471.930435 249.321739 498.643478 249.321739L498.643478 249.321739zM244.869565 340.591304c-26.713043 0-53.426087-17.808696-53.426087-44.521739 0-26.713043 26.713043-44.521739 53.426087-44.521739 26.713043 0 44.521739 17.808696 44.521739 44.521739C291.617391 322.782609 273.808696 340.591304 244.869565 340.591304L244.869565 340.591304zM244.869565 340.591304"
+            p-id="4673"
+            fill="#22c55e"></path><path
+            d="M1021.773913 629.982609c0-144.695652-144.695652-262.678261-307.2-262.678261-171.408696 0-307.2 117.982609-307.2 262.678261 0 144.695652 135.791304 262.678261 307.2 262.678261 35.617391 0 71.234783-8.904348 109.078261-17.808696l97.947826 53.426087-26.713043-91.269565C968.347826 783.582609 1021.773913 710.121739 1021.773913 629.982609L1021.773913 629.982609zM616.626087 583.234783c-17.808696 0-35.617391-17.808696-35.617391-35.617391 0-17.808696 17.808696-35.617391 35.617391-35.617391 26.713043 0 44.521739 17.808696 44.521739 35.617391C661.147826 565.426087 643.33913 583.234783 616.626087 583.234783L616.626087 583.234783zM814.747826 583.234783c-17.808696 0-35.617391-17.808696-35.617391-35.617391 0-17.808696 17.808696-35.617391 35.617391-35.617391 26.713043 0 44.521739 17.808696 44.521739 35.617391C859.269565 565.426087 841.46087 583.234783 814.747826 583.234783L814.747826 583.234783zM814.747826 583.234783"
+            p-id="4674"
+            fill="#22c55e"></path></svg
+        >
+        <div class="flex flex-col items-center pt-4">
+          <Image alt="wechat" src={wechat} class="w-[140px] h-[135px]" />
+          <div class="text-white">yeyan308</div>
+        </div>
+      </Card>
+      <Card
+        title="GitHub"
+        style=" border border-gray-600 overflow-hidden rounded-md"
+        cardMain="bg-neutral-500 h-full "
+        titleColor="text-neutral-500"
+        anim={anmi(1300, "500px")}
+      >
+        <svg
+          slot="icon"
+          class="icon"
+          viewBox="0 0 1024 1024"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          p-id="8857"
+          width="32"
+          height="32"
+          ><path
+            d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9 23.5 23.2 38.1 55.4 38.1 91v112.5c0.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"
+            p-id="8858"
+            fill="#737373"></path></svg
+        >
+        <div class="flex flex-col justify-center items-center pt-4">
+          <Image alt="github" src={github} class="w-[140px] h-[135px]" />
+          <div class="text-white">https://github.com/YYGod0120</div>
+        </div>
+      </Card>
+      <Card
+        title="QQ"
+        style=" border border-gray-600 overflow-hidden rounded-md"
+        cardMain="bg-sky-400 h-full"
+        titleColor="text-sky-400"
+        anim={anmi(1050, "500px")}
+      >
+        <svg
+          slot="icon"
+          class="icon"
+          viewBox="0 0 1024 1024"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          p-id="4354"
+          width="32"
+          height="32"
+          ><path
+            d="M512.268258 64.433103c-247.183323 0-447.569968 200.380501-447.569968 447.563825 0 247.189467 200.385621 447.570992 447.569968 447.570992s447.569968-200.380501 447.569968-447.569968c0-247.184347-200.386645-447.564849-447.569968-447.564849z m252.85872 584.692787c-18.997168 16.287968-43.668709-53.628042-47.2134-42.875198-8.642616 26.161294-12.695154 43.646184-38.148944 72.127602-1.35972 1.521494 29.43056 12.647032 38.148944 36.396051 8.346713 22.756875 24.596797 58.811973-81.725503 70.125906-62.389428 6.635801-107.471099-33.244533-111.964932-32.85648-8.325212 0.734126-4.618747 0-13.568528 0-7.321804 0-7.807126 0.534468-14.69685 0-1.899307-0.140272-22.632985 32.85648-115.364231 32.85648-71.878798 0-90.48177-45.243445-76.032701-70.125906 14.464428-24.877342 38.579999-32.122354 35.176604-36.06636-16.73643-19.39546-28.287904-40.1404-35.176604-58.882621-1.705793-4.666869-3.135137-9.209848-4.262434-13.574672-2.611931-10.008479-22.627866 58.76385-44.111028 42.875198-21.483162-15.883533-19.567472-56.309597-5.659014-95.003248 14.033372-39.006959 49.37687-76.562049 49.771065-84.854496 1.412962-30.849665-3.044011-35.975235 0-44.078263 6.780169-18.149391 15.034732-11.190043 15.034733-20.609788 0-118.64476 88.172909-214.829571 196.933079-214.829571 108.755051 0 196.928984 96.184811 196.928984 214.829571 0 4.554242 11.815637 0 17.474651 20.609788 1.165181 4.256291 1.968931 20.684531 0.58771 44.078263-0.658358 11.238165 29.954789 24.914202 45.777913 84.854496 15.845649 59.945414 0 88.215912-7.909514 95.003248z"
+            fill="#38bdf8"
+            p-id="4355"></path></svg
+        >
+        <div class="flex flex-col justify-center items-center pt-4">
+          <Image alt="qq" src={qq} class="w-[140px] h-[135px]" />
+          <div class="text-white">@</div>
+        </div>
+      </Card>
+    </div>
+  </body>
+</html>
