@@ -1,0 +1,41 @@
+---
+import "../styles/fontFamily.css";
+import FormattedDate from "./FormattedDate.astro";
+interface Props {
+  posts: Blogs[];
+}
+interface Blogs {
+  id: string;
+  slug: string;
+  body: string;
+  collection: "blog";
+  data: {
+    updatedDate?: Date | undefined;
+    heroImage?: string | undefined;
+    title: string;
+    description: string;
+    pubDate: Date;
+  };
+}
+const { posts } = Astro.props;
+---
+
+<ul class="overflow-hidden rounded-xl flex flex-col h-full">
+  <div
+    class="text-center leading-[40px] text-stone-100 bvrounded-tl-xl h-[40px] rounded-tr-xl bg-slate-300"
+  >
+    Blogs
+  </div>
+  <div class="bg-slate-500 text-white h-full">
+    {
+      posts.map((post) => (
+        <li class="p-3">
+          <h3 class=" text-xl">{post.data.title}</h3>
+          <p class=" text-base opacity-40">
+            <FormattedDate date={post.data.pubDate} />
+          </p>
+        </li>
+      ))
+    }
+  </div>
+</ul>
